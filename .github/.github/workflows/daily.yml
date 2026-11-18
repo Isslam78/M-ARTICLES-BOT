@@ -1,0 +1,19 @@
+name: Daily Bot
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install feedparser requests
+      - run: python main.py
+        env:
+          WHATSAPP_TOKEN: ${{ secrets.EAAVugUdEpRYBTGzh3BWD5KW5fdPpIJVTNnowiKYUuRZCO69cGPqYfAACWwHC2ZAVZCMs0v4He2YfLZBBlMYghpPeIDGYI3PkIz3YZAK6XFhAU1fu8PEEcEy5dFSXxP1bV1ZBJPHIUsWZCbs5voGph461mYV3uWZBKbr0ENaMJanSOgLZBfHfIFcoef4w4AMkFteMWIzc1augSda1nZBcI3JLi56RHmNeQFBxwHt0QZCIw6xgBzHfqhomwvpJ9AHBJolNvvBjzIm2qbnvWchyZCRoJQAU}}
+          WHATSAPP_PHONE_ID: ${{ secrets.1525789113940519 }}
+          WHATSAPP_TO: ${{ secrets.EAAVugUdEpRYBTGzh3BWD5KW5fdPpIJVTNnowiKYUuRZCO69cGPqYfAACWwHC2ZAVZCMs0v4He2YfLZBBlMYghpPeIDGYI3PkIz3YZAK6XFhAU1fu8PEEcEy5dFSXxP1bV1ZBJPHIUsWZCbs5voGph461mYV3uWZBKbr0ENaMJanSOgLZBfHfIFcoef4w4AMkFteMWIzc1augSda1nZBcI3JLi56RHmNeQFBxwHt0QZCIw6xgBzHfqhomwvpJ9AHBJolNvvBjzIm2qbnvWchyZCRoJQAU }}
